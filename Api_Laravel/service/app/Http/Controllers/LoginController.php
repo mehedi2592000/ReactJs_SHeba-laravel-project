@@ -62,6 +62,11 @@ class LoginController extends Controller
             $token->userid = $c->id;
             $token->token_id = $api_token;
             $token->create_at = new DateTime();
+           session()->put('user',$c->id);
+            session()->put('username',$c->name);
+            session()->put('token',$api_token);
+            
+
             $token->save();
             return $token;
         }
@@ -83,7 +88,9 @@ class LoginController extends Controller
 
 public function logout(){
 
-    
+    $c = token::where('exparied_at',NULL)
+                  
+                  ->first();
 
     $token = new token();
     $token->exparied_at = "8/8";

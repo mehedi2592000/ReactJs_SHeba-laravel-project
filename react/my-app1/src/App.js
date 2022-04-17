@@ -7,6 +7,7 @@ import React_boot from './component/bootstap/React_boot';
 import State from './component/pstate/State';
 import Ajax from './component/eventajax/Ajax';
 import Loge from './component/Login/Logine';
+import Dashboard from './component/Login/Dashboard';
 import List from './component/Croud/List';
 import Add from './component/Croud/Add';
 import Edit from './component/Croud/Edit';
@@ -51,8 +52,12 @@ function App(){
           <Route exact path="/">
             <Loge />
           </Route>
-          
-  
+          <Route exact path="/Logout">
+            <Logout />
+          </Route>
+          <Route exact path="/Dashboard">
+            <Dashboard />
+          </Route>
           
         </Switch>
   

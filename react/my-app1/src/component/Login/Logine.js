@@ -23,7 +23,7 @@ const Login = ()=>{
              axios.get("http://127.0.0.1:8000/api/email",)
 
              alert("Login successful and sent to your email");
-             history.push("/List");
+             history.push("/Dashboard");
              
         }).catch(err=>{
             console.log(err);

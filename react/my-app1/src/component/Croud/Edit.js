@@ -1,4 +1,5 @@
 import React, { useState, userEffect } from "react";
+
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -20,6 +21,10 @@ const Edit = (props) => {
     
     const {pid} =useParams();
     const [products, setProducts] = useState([]);
+
+    const user=products.filter((product)=>product.id==pid)
+      console.log(user[0])
+    
     const registrationSubmit = () => {
         
 
@@ -29,6 +34,8 @@ const Edit = (props) => {
                  //var token = resp.data;
                  console.log(resp.data);
                 setProducts(resp.data);
+
+                
                 // console.log(token);
                 // var user = { userId: token.userid, access_token: token.token };
                 // localStorage.setItem('email', JSON.stringify(user));
