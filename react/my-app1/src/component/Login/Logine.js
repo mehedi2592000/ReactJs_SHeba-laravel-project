@@ -1,7 +1,11 @@
 import React, {useState, userEffect} from "react";
 import axios from "axios";
 
+import { useHistory } from "react-router-dom";
+
+
 const Login = ()=>{
+    let history = useHistory();
     let[token, setToken]= useState("");
     let[name, setName] = useState("");
     let[password, setPassword] =useState("");
@@ -17,6 +21,9 @@ const Login = ()=>{
              console.log(localStorage.getItem('user'));
 
              axios.get("http://127.0.0.1:8000/api/email",)
+
+             alert("Login successful and sent to your email");
+             history.push("/List");
              
         }).catch(err=>{
             console.log(err);
@@ -25,15 +32,48 @@ const Login = ()=>{
 
     }
     return(
-        <div>
-            <form>
-                <input type="text" value={name} onChange={(e)=>setName(e.target.value)}></input>
-                <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
-
+        <div className="App">
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <div className="col-md-4">
+            <form id="loginform">
+              <div className="form-group">
+                <label>Email address</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="textInput"
+                  name="textInput"
+                  aria-describedby="textHelp"
+                  placeholder="Enter username"
+                  value={name}
+                  onChange={(e)=>setName(e.target.value)}
+                />
+                
+              </div>
+              <div className="form-group">
+                <label>Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  onChange={(e)=>setPassword(e.target.value)}
+                  value={password}
+                />
+                
+              </div>
+              
+              
             </form>
-                <button onClick={loginSubmit}>Login</button>
-        </div>
 
+            <button onClick={loginSubmit}>Login</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+ 
     )
 }
 export default Login; 

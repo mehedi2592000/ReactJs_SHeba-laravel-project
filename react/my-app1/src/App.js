@@ -33,7 +33,7 @@ function App(){
       <Router>
         
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/List">
             <List />
           </Route>
           <Route exact path="/Add">
@@ -48,7 +48,7 @@ function App(){
           <Route exact path="/Delete/:pid">
             <Delete />
           </Route>
-          <Route exact path="/Loge">
+          <Route exact path="/">
             <Loge />
           </Route>
           
