@@ -86,16 +86,14 @@ class LoginController extends Controller
     }
 */
 
-public function logout(){
+public function logout(Request $request){
 
-    $c = token::where('exparied_at',NULL)
-                  
-                  ->first();
-
-    $token = new token();
-    $token->exparied_at = "8/8";
-    $token->save();
+    $token = $request->tokenString;
     
-    return "ok";
+    $check_token = token::where('token',$token)->where('expired_at',"false")->first();
+    return $check_token;
+
+    $check_token->exparied_at="true";
+    $check_token->save();
 }
 }

@@ -50,7 +50,7 @@ Route::post('/orderdetailupdate/{id}',[OrderdetailController::class,'submitorder
 Route::get('/providerDelete/{id}',[OrderdetailController::class,'providerDelete']);
 
 Route::post('/logine',[loginController::class,'loginSubmit']);
-Route::get('/logout',[loginController::class,'logout']);
+Route::post('/logout',[loginController::class,'logout']);
 
 Route::get('/email',function(){
     Mail::to('bd34017053@gmail.com')->send(new welcomeMail());

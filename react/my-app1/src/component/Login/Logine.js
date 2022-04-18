@@ -21,6 +21,11 @@ const Login = ()=>{
              console.log(localStorage.getItem('user'));
 
              axios.get("http://127.0.0.1:8000/api/email",)
+             
+             window.sessionStorage.setItem("tokenString", user.access_token);
+             window.sessionStorage.setItem("token", "notexists");
+                window.sessionStorage.setItem("email", "");
+             
 
              alert("Login successful and sent to your email");
              history.push("/Dashboard");
